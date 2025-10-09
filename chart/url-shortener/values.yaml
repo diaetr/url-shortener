@@ -1,0 +1,16 @@
+﻿replicaCount: 1
+
+image:
+  repository: docker.io/<YOUR_DOCKERHUB_USERNAME>/url-shortener
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+containerPort: 8080
+
+env: []
+resources: {}

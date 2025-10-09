@@ -1,0 +1,34 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-url-shortener
+  labels:
+    app: url-shortener
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: url-shortener
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: url-shortener
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: url-shortener
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          env:
+            {{- if .Values.env }}
+            {{- range .Values.env }}
+            - name: {{ .name | quote }}
+              value: {{ .value | quote }}
+            {{- end }}
+            {{- else }}
+            []
+            {{- end }}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
