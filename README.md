@@ -6,6 +6,8 @@ It exposes two endpoints:
 - `POST /shorten` — accepts a long URL and returns a short identifier.
 - `GET /{id}` — redirects to the original URL if the id exists, otherwise `404`.
 
+This project is intentionally minimal and uses **in-memory storage** (no DB). Perfect for a coding challenge.
+
 ---
 
 ## Features
