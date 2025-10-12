@@ -1,32 +1,23 @@
-# URL Shortener Service
+# URL Shortener (Spring Boot)
 
-A simple **URL Shortener REST API** implemented in **Java** and **Spring Boot**, built with **Gradle**, containerized with **Docker**, and deployable on **Kubernetes** using **Helm**.
+A tiny URL shortener built with **Java 17** and **Spring Boot**.  
+It exposes two endpoints:
+
+- `POST /shorten` — accepts a long URL and returns a short identifier.
+- `GET /{id}` — redirects to the original URL if the id exists, otherwise `404`.
+
+This project is intentionally minimal and uses **in-memory storage** (no DB). Perfect for a coding challenge.
 
 ---
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Build and Run Locally](#build-and-run-locally)
-- [API](#api)
-  - [POST /shorten](#post-shorten)
-  - [GET /{id}](#get-id)
-- [Docker](#docker)
-- [Kubernetes (Helm)](#kubernetes-helm)
-- [CI/CD](#cicd)
-- [License](#license)
----
+
 ## Features
 
-- Shorten URLs via REST API (`POST /shorten`)
-- Redirect to the original URL via shortened ID (`GET /{id}`)
+- Java 17 + Spring Boot (Gradle)
+- Two endpoints (`POST /shorten`, `GET /{id}`)
 - In-memory thread-safe store (`ConcurrentHashMap`)
 - Basic URL validation (`http`/`https`, syntactic check)
-- Unit tests for each endpoint
-- Dockerized for easy container deployment
-- Helm chart for Kubernetes deployment
-- CI pipeline via GitHub Actions
+- Tests (at least one per endpoint)
+- Conventional commits recommended
 
 ---
 
@@ -36,11 +27,15 @@ A simple **URL Shortener REST API** implemented in **Java** and **Spring Boot**,
 - **Framework:** Spring Boot
 - **Build:** Gradle (wrapper included)
 - **Tests:** JUnit 5, Spring MockMvc
-- **Container** Docker 
-- **Deployment** Kubernetes + Helm
-- **CI Pipeline** GitHub Actions
-- **Storage** In-memory Map
 
 ---
 
-## Getting Started
+## Quick Start
+
+```bash
+# run in dev mode
+./gradlew bootRun
+
+# or build a runnable jar
+./gradlew clean build
+java -jar build/libs/*-SNAPSHOT.jar
