@@ -3,20 +3,6 @@
 A simple **URL Shortener REST API** implemented in **Java** and **Spring Boot**, built with **Gradle**, containerized with **Docker**, and deployable on **Kubernetes** using **Helm**.
 
 ---
-## Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Build and Run Locally](#build-and-run-locally)
-- [API](#api)
-  - [POST /shorten](#post-shorten)
-  - [GET /{id}](#get-id)
-- [Docker](#docker)
-- [Kubernetes (Helm)](#kubernetes-helm)
-- [CI/CD](#cicd)
-- [License](#license)
----
 ## Features
 
 - Shorten URLs via REST API (`POST /shorten`)
@@ -41,6 +27,3 @@ A simple **URL Shortener REST API** implemented in **Java** and **Spring Boot**,
 - **CI Pipeline** GitHub Actions
 - **Storage** In-memory Map
 
----
-
-## Getting Started
