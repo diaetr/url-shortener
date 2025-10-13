@@ -18,7 +18,7 @@ A simple **URL Shortener REST API** implemented in **Java** and **Spring Boot**,
 
 ## Tech Stack
 
-- **Language:** Java 17
+- **Language:** Java 21
 - **Framework:** Spring Boot
 - **Build:** Gradle (wrapper included)
 - **Tests:** JUnit 5, Spring MockMvc
